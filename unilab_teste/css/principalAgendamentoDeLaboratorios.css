@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+body {
+    background: linear-gradient(135deg, #030A8C, #0511F2);
+    font-family: 'Poppins', sans-serif;
+    color: #F9FBFA;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.header {
+    background: rgba(249, 251, 250, 0.1);
+    /* Fundo semitransparente */
+    color: white;
+    padding: 20px 0;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer img {
+    width: 50px;
+    height: 50px;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.row {
+    margin-top: 40px;
+}
+
+.card {
+    border-radius: 20px;
+    /* Bordas mais arredondadas */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    color: #F9FBFA;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* Elevação ao passar o mouse */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    background: rgba(0, 86, 179, 0.3);
+}
+
+.card h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #F9FBFA;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.details p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.btn {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    /* Botões mais arredondados */
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background: rgb(0, 255, 0);
+    color: black;
+}
+
+.btn-success:hover {
+    background: yellow;
+    color: black;
+}
+
+.btn-danger:hover {
+    background: #8B0000;
+    color: white;
+}
+
+.btn-disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Foco nos botões e cards */
+.card:focus,
+.btn:focus {
+    outline: 3px solid #0056b3;
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}

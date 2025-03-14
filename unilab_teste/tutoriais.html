@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tutoriais do sistema UniLab - Aprenda a usar todas as funcionalidades">
+    <title>Tutoriais - UniLab</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/tutoriais.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- Skip Link para Acessibilidade -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="imagens/LogoUnilab.png" alt="UniLab Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tutoriais.html">Tutoriais</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main id="main-content" class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar com Categorias -->
+            <div class="col-lg-3 col-md-4">
+                <div class="tutorial-sidebar">
+                    <h3 class="sidebar-title">Categorias</h3>
+                    <div class="list-group">
+                        <button class="list-group-item list-group-item-action active" data-category="todos">
+                            Todos os Tutoriais
+                        </button>
+                        <button class="list-group-item list-group-item-action" data-category="agendamento">
+                            Agendamento de Laboratórios
+                        </button>
+                        <button class="list-group-item list-group-item-action" data-category="administracao">
+                            Área Administrativa
+                        </button>
+                        <button class="list-group-item list-group-item-action" data-category="notificacoes">
+                            Notificações
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Área de Vídeos -->
+            <div class="col-lg-9 col-md-8">
+                <div class="tutorial-content">
+                    <!-- Barra de Pesquisa -->
+                    <div class="search-bar mb-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="searchTutorial" placeholder="Pesquisar tutoriais...">
+                            <button class="btn btn-primary" type="button">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Grid de Vídeos -->
+                    <div class="tutorial-grid" id="tutorialGrid">
+                        <!-- Os vídeos serão inseridos aqui via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Reprodução -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="videoModalLabel">Tutorial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="tutorialVideo" src="" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-3 mt-auto">
+        <div class="container text-center">
+            <div class="footer-links">
+                <a href="#">Suporte</a>
+                <span class="separator">|</span>
+                <a href="#">Termos de Uso</a>
+                <span class="separator">|</span>
+                <a href="#">Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/tutoriais.js"></script>
+</body>
+</html> 

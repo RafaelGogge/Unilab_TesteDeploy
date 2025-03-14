@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendamento - Laboratório</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/agendamento_lab.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/agendamento_lab.js"></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2 class="login-title">Agendamento: Laboratório</h2>
+      <!-- Campo para o Nome do Professor -->
+      <div>
+        <label for="nomeProfessor" class="form-label">Nome do Professor:</label>
+        <input
+          type="text"
+          id="nomeProfessor"
+          class="form-control"
+          placeholder="Digite seu nome"
+        />
+      </div>
+      <!-- Campo para a Data -->
+      <div>
+        <label for="dataAgendamento" class="form-label"
+          >Data do Agendamento:</label
+        >
+        <input type="date" id="dataAgendamento" class="form-control" />
+      </div>
+      <!-- Botões de Horários -->
+      <button class="btn btn-custom" onclick="reservar('19:00 às 20:20')">
+        19:00 às 20:20
+      </button>
+      <button class="btn btn-custom" onclick="reservar('20:50 às 22:00')">
+        20:50 às 22:00
+      </button>
+      <button
+        class="btn btn-custom"
+        onclick="reservar('19:00 às 20:20 e 20:50 às 22:00')"
+      >
+        Ambos os Horários
+      </button>
+      <!-- Status de Disponibilidade -->
+      <div class="status-container">
+        <h3 class="status-title">Status do Laboratório</h3>
+        <ul id="statusList" class="status-list"></ul>
+      </div>
+      <!-- Botão para cancelar os agendamentos -->
+      <button
+        id="cancelButton"
+        class="btn btn-cancel d-none"
+        onclick="abrirModalCancelamento()"
+      >
+        Cancelar Agendamentos
+      </button>
+      <!-- Botão para voltar -->
+      <button
+        class="btn btn-custom"
+        onclick="window.location.href='sejaBemVindo.html';"
+      >
+        Voltar
+      </button>
+    </div>
+    <!-- Modal de Cancelamento -->
+    <div
+      class="modal fade"
+      id="cancelModal"
+      tabindex="-1"
+      aria-labelledby="cancelModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cancelModalLabel">
+              Cancelar Agendamentos
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <!-- Lista de agendamentos com checkboxes será inserida aqui -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-cancel"
+              onclick="cancelarAgendamentosSelecionados()"
+            >
+              Cancelar Selecionados
+            </button>
+            <button
+              type="button"
+              class="btn btn-custom"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal de Confirmação para Novo Agendamento -->
+    <div
+      class="modal fade modal-confirm"
+      id="confirmAgendamentoModal"
+      tabindex="-1"
+      aria-labelledby="confirmAgendamentoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmAgendamentoModalLabel">
+              Realizar outro agendamento?
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" id="btnSim">
+              Sim
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="window.location.href='sejaBemVindo.html';"
+            >
+              Não
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

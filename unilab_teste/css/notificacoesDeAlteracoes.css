@@ -1,0 +1,46 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header,
+.footer {
+    width: 100%;
+    padding: 1rem 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 100;
+}
+
+.notification {
+    background-color: #e9ecef;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.filter-container {
+    margin: 1rem 0;
+}
