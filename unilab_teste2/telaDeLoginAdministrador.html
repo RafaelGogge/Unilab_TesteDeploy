@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tela de login do administrador do UniLab">
+    <title>Login Administrador - UniLab</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/telaDeLoginAdministrador.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <!-- Skip Link para Acessibilidade -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="imagens/LogoUnilab.png" alt="UniLab Logo" height="40" width="auto">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <i class="bi bi-house"></i>Início
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="telaDeLoginAdministrador.html">
+                <i class="bi bi-shield-lock"></i>Login Admin
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main id="main-content" class="container py-5">
+      <div class="login-container">
+        <div class="login-card">
+          <div class="text-center mb-4">
+            <img src="imagens/LogoUnilab.png" alt="UniLab Logo" class="logo">
+            <h1>Login Administrador</h1>
+            <p class="text-muted">Acesse o painel de gerenciamento</p>
+          </div>
+          
+          <!-- Feedback Messages -->
+          <div id="feedback" class="alert alert-dismissible fade show" style="display: none;" role="alert"></div>
+
+          <!-- Formulário de Login -->
+          <form id="loginForm" class="needs-validation" novalidate>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="username" name="username" placeholder="Usuário" required>
+              <label for="username">Usuário</label>
+              <div class="invalid-feedback">Por favor, insira seu usuário.</div>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Senha" required>
+              <label for="password">Senha</label>
+              <button type="button" class="password-toggle" aria-label="Mostrar senha">
+                <i class="bi bi-eye"></i>
+              </button>
+              <div class="invalid-feedback">Por favor, insira sua senha.</div>
+            </div>
+
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
+              <label class="form-check-label" for="rememberMe">Lembrar-me</label>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-box-arrow-in-right"></i>Entrar
+              </button>
+            </div>
+
+            <div class="text-center mt-3">
+              <a href="#" class="recovery-link" data-bs-toggle="modal" data-bs-target="#recoveryModal">
+                <i class="bi bi-key"></i>Esqueceu sua senha?
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal de Recuperação de Senha -->
+    <div class="modal fade" id="recoveryModal" tabindex="-1" aria-labelledby="recoveryModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="recoveryModalLabel">Recuperar Senha</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Digite seu e-mail cadastrado para receber as instruções de recuperação de senha.</p>
+            <form id="recoveryForm">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="recoveryEmail" placeholder="E-mail" required>
+                <label for="recoveryEmail">E-mail</label>
+                <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="sendRecovery">
+              <i class="bi bi-send"></i>Enviar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-3 mt-auto">
+      <div class="container text-center">
+        <div class="footer-links">
+          <a href="suporte.html">
+            <i class="bi bi-headset"></i>Suporte
+          </a>
+          <span class="separator">|</span>
+          <a href="termos.html">
+            <i class="bi bi-file-text"></i>Termos de Uso
+          </a>
+          <span class="separator">|</span>
+          <a href="privacidade.html">
+            <i class="bi bi-shield-check"></i>Privacidade
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/telaDeLoginAdministrador.js"></script>
+  </body>
+</html>

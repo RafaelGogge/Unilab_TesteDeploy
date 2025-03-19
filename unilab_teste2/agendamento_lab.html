@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendamento - Laboratório</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Variáveis CSS -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/agendamento_lab.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts da aplicação -->
+    <script src="js/verificarAcesso.js"></script>
+    <script src="js/agendamento_lab.js"></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-title">
+        <button
+          class="btn btn-voltar"
+          onclick="window.location.href='sejaBemVindo.html';"
+        >
+          <i class="bi bi-arrow-left"></i>
+        </button>
+        <span>Agendamento: Laboratório</span>
+      </div>
+      <!-- Informações do Laboratório -->
+      <div class="lab-details-container">
+        <h3 class="lab-details-title">
+          <i class="bi bi-info-circle"></i> Informações do Laboratório
+        </h3>
+        <div class="lab-details-grid">
+          <div class="lab-detail-item">
+            <i class="bi bi-geo-alt"></i>
+            <div class="detail-content">
+              <span class="detail-label">Localização:</span>
+              <span class="detail-value" id="labLocalizacao">Carregando...</span>
+            </div>
+          </div>
+          <div class="lab-detail-item">
+            <i class="bi bi-pc-display"></i>
+            <div class="detail-content">
+              <span class="detail-label">Tipo:</span>
+              <span class="detail-value" id="labTipo">Carregando...</span>
+            </div>
+          </div>
+          <div class="lab-detail-item">
+            <i class="bi bi-people"></i>
+            <div class="detail-content">
+              <span class="detail-label">Capacidade:</span>
+              <span class="detail-value" id="labCapacidade">Carregando...</span>
+            </div>
+          </div>
+          <div class="lab-detail-item">
+            <i class="bi bi-circle-fill status-icon"></i>
+            <div class="detail-content">
+              <span class="detail-label">Status:</span>
+              <span class="detail-value" id="labStatus">Carregando...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Campo para o Nome do Professor -->
+      <div class="form-group mb-3">
+        <label for="nomeProfessor" class="form-label">Professor:</label>
+        <select
+          id="nomeProfessor"
+          class="form-select"
+          required
+        >
+          <option value="">Selecione um professor</option>
+          <!-- Os professores serão carregados aqui via JavaScript -->
+        </select>
+      </div>
+      <!-- Campo para a Data -->
+      <div class="form-group mb-3">
+        <label for="dataAgendamento" class="form-label">Data do Agendamento:</label>
+        <input type="date" id="dataAgendamento" class="form-control" />
+      </div>
+      <!-- Botões de Horários -->
+      <div class="horarios-container">
+        <button class="btn btn-custom" onclick="reservar('19:00 às 20:20')">
+          <i class="bi bi-clock"></i> 19:00 às 20:20
+        </button>
+        <button class="btn btn-custom" onclick="reservar('20:50 às 22:00')">
+          <i class="bi bi-clock"></i> 20:50 às 22:00
+        </button>
+        <button
+          class="btn btn-custom"
+          onclick="reservar('19:00 às 20:20 e 20:50 às 22:00')"
+        >
+          <i class="bi bi-clock-fill"></i> Ambos os Horários
+        </button>
+      </div>
+      
+      <!-- Status de Disponibilidade -->
+      <div class="status-container">
+        <h3 class="status-title">Status do Laboratório</h3>
+        <ul id="statusList" class="status-list"></ul>
+      </div>
+
+      <!-- Ferramentas do Laboratório -->
+      <div class="lab-info">
+        <h3 class="ferramentas-titulo">Ferramentas Disponíveis</h3>
+        <div class="ferramentas-grid" id="ferramentasGrid">
+          <!-- As ferramentas serão inseridas aqui via JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Botão para cancelar os agendamentos -->
+      <button
+        id="cancelButton"
+        class="btn btn-cancel d-none"
+        onclick="abrirModalCancelamento()"
+      >
+        <i class="bi bi-x-circle"></i> Cancelar Agendamentos
+      </button>
+
+      <!-- Botão para voltar -->
+      <button
+        class="btn btn-custom mt-3"
+        onclick="window.location.href='sejaBemVindo.html';"
+      >
+        <i class="bi bi-arrow-left"></i> Voltar
+      </button>
+    </div>
+
+    <!-- Modal de Cancelamento -->
+    <div
+      class="modal fade"
+      id="cancelModal"
+      tabindex="-1"
+      aria-labelledby="cancelModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cancelModalLabel">
+              <i class="bi bi-calendar-x"></i> Cancelar Agendamentos
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <!-- Lista de agendamentos com checkboxes será inserida aqui -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-cancel"
+              onclick="cancelarAgendamentosSelecionados()"
+            >
+              <i class="bi bi-trash"></i> Cancelar Selecionados
+            </button>
+            <button
+              type="button"
+              class="btn btn-custom"
+              data-bs-dismiss="modal"
+            >
+              <i class="bi bi-x"></i> Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Confirmação para Novo Agendamento -->
+    <div
+      class="modal fade modal-confirm"
+      id="confirmAgendamentoModal"
+      tabindex="-1"
+      aria-labelledby="confirmAgendamentoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmAgendamentoModalLabel">
+              <i class="bi bi-question-circle"></i> Realizar outro agendamento?
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" id="btnSim">
+              <i class="bi bi-check-circle"></i> Sim
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="window.location.href='sejaBemVindo.html';"
+            >
+              <i class="bi bi-x-circle"></i> Não
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

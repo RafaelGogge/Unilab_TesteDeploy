@@ -1,0 +1,444 @@
+@charset "UTF-8";
+
+/* Importar variáveis globais */
+@import url('variables.css');
+
+/* Estilos gerais */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Container principal */
+.login-container {
+    background: var(--container-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(10px);
+    margin-top: 20px;
+}
+
+/* Carousel ajustado */
+.carousel-content {
+    padding: 1rem !important;
+    text-align: center;
+    background: var(--background-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-content h2 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Título e botão voltar */
+.login-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.login-title span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    flex: 1;
+}
+
+/* Botões */
+.btn-voltar {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-voltar:hover {
+    background: var(--primary-color-light);
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.btn-custom {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-custom:hover {
+    background: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+}
+
+.btn-cancel {
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btn-cancel:hover {
+    background: var(--danger-color-dark);
+    transform: translateY(-2px);
+}
+
+/* Formulário */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control, .form-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-color-light);
+    outline: none;
+}
+
+/* Container de horários */
+.horarios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Status do laboratório */
+.status-container {
+    background: var(--container-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+.status-title {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.status-list li {
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--background-color);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.status-list li:hover {
+    transform: translateX(5px);
+}
+
+.agendamento-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.agendamento-info.hoje {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Ferramentas */
+.lab-info {
+    background: var(--container-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+.ferramentas-titulo {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ferramentas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.ferramenta-item {
+    background: var(--background-color);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-height: 100px;
+    justify-content: center;
+    text-align: center;
+}
+
+.ferramenta-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow);
+}
+
+.ferramenta-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Modal */
+.modal-content {
+    background: var(--container-bg);
+    border: none;
+    border-radius: 15px;
+}
+
+.modal-header {
+    border-bottom: 2px solid var(--border-color);
+    padding: 1.5rem;
+}
+
+.modal-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: 2px solid var(--border-color);
+    padding: 1.5rem;
+}
+
+/* Animações */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .login-container {
+        padding: 1.5rem;
+    }
+
+    .horarios-container {
+        grid-template-columns: 1fr;
+    }
+
+    .ferramentas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .btn-custom, .btn-cancel {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .btn-custom:hover, .btn-cancel:hover, .ferramenta-item:hover {
+        transform: none;
+    }
+}
+
+/* Informações do Laboratório */
+.lab-details-container {
+    background: var(--container-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+.lab-details-title {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lab-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.lab-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.lab-detail-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-light);
+}
+
+.lab-detail-item i {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.detail-value {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.status-icon {
+    font-size: 0.75rem;
+}
+
+.status-icon.disponivel {
+    color: var(--success-color);
+}
+
+.status-icon.ocupado {
+    color: var(--danger-color);
+}
+
+.status-icon.manutencao {
+    color: var(--warning-color);
+}
+
+/* Responsividade ajustada */
+@media (max-width: 768px) {
+    .lab-details-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .lab-detail-item {
+        padding: 0.75rem;
+    }
+
+    .detail-label {
+        font-size: 0.8125rem;
+    }
+
+    .detail-value {
+        font-size: 0.9375rem;
+    }
+}
